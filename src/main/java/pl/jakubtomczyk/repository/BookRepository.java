@@ -1,12 +1,11 @@
 package pl.jakubtomczyk.repository;
 
-
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import pl.jakubtomczyk.entity.User;
+import pl.jakubtomczyk.entity.Book;
 
 @Repository
-public interface UserRepository extends JpaRepository<User, Long> {
+public interface BookRepository extends JpaRepository<Book, Long> {
 
-    User findOneById(Long id);
+    public Book findOneById(Long id);
 }

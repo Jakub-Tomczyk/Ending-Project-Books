@@ -5,7 +5,11 @@
     <title>Testowanie</title>
 </head>
 <body>
-Jeśli się wyświetli to działa
+Home Page :-)
+<br>
+<div>
+<a href="/form"> Dodawanie nowego użytkownika </a>
+</div>
 
 </body>
 </html>

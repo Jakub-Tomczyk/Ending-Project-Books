@@ -1,10 +1,10 @@
 package pl.jakubtomczyk.entity;
 
-import org.springframework.security.core.GrantedAuthority;
+import org.hibernate.validator.constraints.UniqueElements;
+
 
 import javax.persistence.*;
-import java.util.Collection;
-import java.util.Set;
+
 
 @Entity
 public class User {
@@ -12,21 +12,13 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(nullable = false, unique = true, length = 60)
-    private String username;
+    private String firstName;
+    private String lastName;
+    @UniqueElements
     private String password;
     private String city;
+    @Column(length=500)
     private String aboutMe;
-    private  int enabled;
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "role_id"))
-    private Set<Role> roles;
-
-    public User() {
-    }
-
-    public User(String username, String password, Collection<? extends GrantedAuthority> authorities) {
-    }
 
     public Long getId() {
         return id;
@@ -36,12 +28,20 @@ public class User {
         this.id = id;
     }
 
-    public String getUsername() {
-        return username;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public String getPassword() {
@@ -66,21 +66,5 @@ public class User {
 
     public void setAboutMe(String aboutMe) {
         this.aboutMe = aboutMe;
-    }
-
-    public int getEnabled() {
-        return enabled;
-    }
-
-    public void setEnabled(int enabled) {
-        this.enabled = enabled;
-    }
-
-    public Set<Role> getRoles() {
-        return roles;
-    }
-
-    public void setRoles(Set<Role> roles) {
-        this.roles = roles;
     }
 }

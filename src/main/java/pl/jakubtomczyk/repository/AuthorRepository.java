@@ -1,12 +1,11 @@
 package pl.jakubtomczyk.repository;
 
-
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import pl.jakubtomczyk.entity.User;
+import pl.jakubtomczyk.entity.Author;
 
 @Repository
-public interface UserRepository extends JpaRepository<User, Long> {
+public interface AuthorRepository extends JpaRepository<Author, Long> {
 
-    User findOneById(Long id);
+    public Author findOneById(Long id);
 }
