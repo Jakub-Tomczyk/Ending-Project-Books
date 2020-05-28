@@ -6,10 +6,13 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+import pl.jakubtomczyk.entity.Book;
 import pl.jakubtomczyk.entity.User;
 import pl.jakubtomczyk.fixture.InitDataFixture;
 import pl.jakubtomczyk.service.UserService;
+import pl.jakubtomczyk.validation.group.UserValidationGroup;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -65,7 +68,7 @@ public class UserController {
     @PostMapping("/form")
     public String post(@Valid @ModelAttribute User user, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
-            return "/form";
+            return "user/userForm";
         }
         try {
             this.userService.save(user);
@@ -75,7 +78,22 @@ public class UserController {
         return "redirect:/home";
     }
 
-    //możliwość wyświetlenia wszystkich Userów -> docelowo ta opcja ma być tylko dla Admina
+    //metoda do edytowania użytkownika razem z hasłem. Do tego muszę dodać w UserService nową metodę Update.
+    // muszę też dodać grupy validacyjne.
+    @PostMapping("/form/{id}")
+    public String update(@Validated(UserValidationGroup.class) @ModelAttribute User user, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return "user/userForm";
+        }
+        try {
+            this.userService.update(user);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "redirect:/home";
+    }
+
+    //możliwość wyświetlenia wszystkich Userów
     @ModelAttribute("users")
     public List<User> users() {
         return userService.readAll();

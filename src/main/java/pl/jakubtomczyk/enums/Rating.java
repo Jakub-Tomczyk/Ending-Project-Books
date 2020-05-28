@@ -1,5 +1,9 @@
 package pl.jakubtomczyk.enums;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
+import java.util.List;
+
 public enum Rating {
     ONE(1),
     TWO(2),
@@ -24,4 +28,5 @@ public enum Rating {
 
 
     Rating(int i) {}
+
 }

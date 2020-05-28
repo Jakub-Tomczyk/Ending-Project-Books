@@ -9,19 +9,44 @@
 Home Page :-)
 <br>
 <div>
-    Add new user -
-<a href="/form"> Add new user </a>
+    <br>
+    Add new User -
+<a href="/form"> add new user </a>
 </div>
 <div>
-    List all users-
+    <br>
+    List all Users-
     <a href="/usersList"> users list </a>
 </div>
+<div>
+    <br>
+    Add new Book -
+    <a href="/formBook"> add new Book </a>
+</div>
+<div>
+    <br>
+    List all Books-
+    <a href="/bookList"> books list </a>
+</div>
+<div>
+    <br>
+    Add new Author -
+    <a href="/formAuthor"> add new Author </a>
+</div>
+<div>
+    <br>
+    List all Authors-
+    <a href="/authorList"> authors list </a>
+</div>
+
+
+<!-- poniżej ma być to dla admina. A powyżej reszta odnośników -->
 
 <div>
+    <br>
     Only for Admin -
     <a href="/about">admin login</a>
 </div>
-
 <nav>
     <sec:authorize access="isAuthenticated()">
         <form action="<c:url value="/logout"/>" method="post">

@@ -23,12 +23,12 @@ public class UserService {
         this.passwordEncoder = passwordEncoder;
     }
 
+
+
     public void save(User user) {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         user.setEnabled(1);
         // TODO :: First register than add ROLE_ADMIN
-
-
         if(user.getRoles() == null || user.getRoles().size()==0) {
             Set<Role> roles = new HashSet<>();
             roles.add(roleRepository.findOneByName("ROLE_USER"));
@@ -46,9 +46,16 @@ public class UserService {
         User user = findById(id);
         this.userRepository.delete(user);
     }
-
-    public void update(User user, Long id) {
-        this.userRepository.findOneById(id);
+    //tą metodę muszę zmodyfikować tak aby sprawdzała warunek. Jeśli password jest puste to wtedy wstawiaj mi automatycznie to hasło co
+    // jest w bazie danych. A jeśli wstawi się nowe to wtedy je "haszuj" ponownie. Brzmi fajnie, ale nie wiem jak to zrobić..
+    // ma to wyglądać trochę tak jak save.
+    public void update(User user) {
+        if(user.getPassword()==null){
+            Set<Role> roles = new HashSet<>();
+            roles.add(roleRepository.findOneByName("ROLE_USER"));
+            user.setRoles(roles);
+        }
+        userRepository.save(user);
     }
 
     public User findById(Long id) {return this.userRepository.findById(id).orElse(null);}

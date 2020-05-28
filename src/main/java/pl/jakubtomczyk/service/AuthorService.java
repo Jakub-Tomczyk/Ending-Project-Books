@@ -16,11 +16,24 @@ public class AuthorService {
         this.authorRepository = authorRepository;
     }
 
-    public void save(Author author){this.authorRepository.save(author);}
+    public void save(Author author) {
+        this.authorRepository.save(author);
+    }
 
-    public List<Author> readAll(){return this.authorRepository.findAll();}
+    public List<Author> readAll() {
+        return this.authorRepository.findAll();
+    }
 
-    public void delete(Author author){this.authorRepository.delete(author);}
+    public void deleteById(Long id) {
+        Author author = findById(id);
+        this.authorRepository.delete(author);
+    }
 
-    public void update(Author author, Long id){this.authorRepository.findOneById(id);}
+    public void update(Author author, Long id) {
+        this.authorRepository.findOneById(id);
+    }
+
+    public Author findById(Long id) {
+        return this.authorRepository.findById(id).orElse(null);
+    }
 }

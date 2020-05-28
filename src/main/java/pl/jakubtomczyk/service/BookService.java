@@ -3,6 +3,7 @@ package pl.jakubtomczyk.service;
 
 import org.springframework.stereotype.Service;
 import pl.jakubtomczyk.entity.Book;
+import pl.jakubtomczyk.entity.User;
 import pl.jakubtomczyk.repository.BookRepository;
 
 import java.util.List;
@@ -20,7 +21,12 @@ public class BookService {
 
     public List<Book> readAll(){return this.bookRepository.findAll();}
 
-    public void delete(Book book){this.bookRepository.delete(book);}
+    public Book findById(Long id) {return this.bookRepository.findById(id).orElse(null);}
+
+    public void deleteById(Long id) {
+        Book book = findById(id);
+        this.bookRepository.delete(book);
+    }
 
     public void update(Book book, Long id){this.bookRepository.findOneById(id);}
 }
