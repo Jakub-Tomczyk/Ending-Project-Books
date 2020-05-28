@@ -30,4 +30,12 @@ public class PublisherService {
     public void update(Publisher publisher, Long id) {
         this.publisherRepository.findOneById(id);
     }
+
+    public Publisher findById(Long id) {
+        return this.publisherRepository.findById(id).orElse(null);
+    }
+    public void deleteById(Long id) {
+        Publisher publisher = findById(id);
+        this.publisherRepository.delete(publisher);
+    }
 }

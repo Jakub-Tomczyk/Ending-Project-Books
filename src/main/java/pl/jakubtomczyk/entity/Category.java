@@ -12,6 +12,14 @@ public class Category {
     @ManyToMany(mappedBy = "category")
     private Set<Book> nameCategory;
 
+    public String getCategoryName() {
+        return categoryName;
+    }
+
+    public void setCategoryName(String categoryName) {
+        this.categoryName = categoryName;
+    }
+
     public Long getId() {
         return id;
     }

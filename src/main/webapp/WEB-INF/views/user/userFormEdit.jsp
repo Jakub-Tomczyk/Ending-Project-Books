@@ -1,12 +1,13 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>User Form</title>
+    <title>User Form Edit</title>
 </head>
 <body>
-<h1>User Create Form</h1>
-<form:form method="post" modelAttribute="user" action="/form">
+<h1>User Edit Form</h1>
+<form:form method="post" modelAttribute="user" action="/formEdit">
     <form:hidden path="id"/>
     <div>
         <label>Name: <form:input path="firstName"/></label>
@@ -16,12 +17,7 @@
         <label>Surname: <form:input path="lastName"/></label>
         <form:errors path="lastName"/>
     </div>
-
-    <div>
-        <label>Password: <form:password path="password"/></label>
-        <form:errors path="password"/>
-    </div>
-
+        <form:hidden path="password"/>
     <div>
         <label>City: <form:input path="city"/></label>
         <form:errors path="city"/>
@@ -36,5 +32,6 @@
     Home page-
     <a href="/home"> home page </a>
 </div>
+
 </body>
 </html>

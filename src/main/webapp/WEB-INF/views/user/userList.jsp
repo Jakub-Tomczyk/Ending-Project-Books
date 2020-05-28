@@ -19,7 +19,7 @@
             <td>${user.city}</td>
             <td>${user.aboutMe}</td>
             <td>
-                <a href="/form/${user.id}">Edit</a>
+                <a href="/formEdit/${user.id}">Edit</a>
                 <a href="/delete/${user.id}">Delete</a>
             </td>
         </tr>

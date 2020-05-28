@@ -80,10 +80,10 @@ public class UserController {
 
     //metoda do edytowania użytkownika razem z hasłem. Do tego muszę dodać w UserService nową metodę Update.
     // muszę też dodać grupy validacyjne.
-    @PostMapping("/form/{id}")
+    @PostMapping("/formEdit")
     public String update(@Validated(UserValidationGroup.class) @ModelAttribute User user, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
-            return "user/userForm";
+            return "user/userFormEdit";
         }
         try {
             this.userService.update(user);
@@ -91,6 +91,12 @@ public class UserController {
             e.printStackTrace();
         }
         return "redirect:/home";
+    }
+    //odsyła do formularza do edycji
+    @GetMapping("/formEdit/{id}")
+    public String getEdit(Model model, @PathVariable long id) {
+        model.addAttribute("user", userService.findById(id));
+        return "user/userFormEdit";
     }
 
     //możliwość wyświetlenia wszystkich Userów
