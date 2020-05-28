@@ -1,4 +1,3 @@
-<%@ taglib prefix="from" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
@@ -7,7 +6,7 @@
 </head>
 <body>
 <h1>User Create Form</h1>
-<from:form method="post" modelAttribute="user" action="/form">
+<form:form method="post" modelAttribute="user" action="/form">
     <form:hidden path="id"/>
     <div>
         <label>Name: <form:input path="firstName"/></label>
@@ -18,7 +17,7 @@
         <form:errors path="lastName"/>
     </div>
     <div>
-        <label>Password: <form:input path="password"/></label>
+        <label>Password: <form:password path="password"/></label>
         <form:errors path="password"/>
     </div>
     <div>
@@ -30,6 +29,10 @@
         <form:errors path="aboutMe"/>
     </div>
     <input type="submit" name="Save"/>
-</from:form>
+</form:form>
+<div>
+    Home page-
+    <a href="/home"> home page </a>
+</div>
 </body>
 </html>

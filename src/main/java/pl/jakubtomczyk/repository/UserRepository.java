@@ -9,4 +9,5 @@ import pl.jakubtomczyk.entity.User;
 public interface UserRepository extends JpaRepository<User, Long> {
 
     User findOneById(Long id);
+    User findByFirstName(String firstName);
 }
