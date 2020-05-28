@@ -20,6 +20,14 @@ public class CategoryService {
 
     public void delete(Category category){this.categoryRepository.delete(category);}
 
+    public void deleteById(Long id) {
+        Category category = findById(id);
+        this.categoryRepository.delete(category);
+    }
+
     public void update(Category category, Long id){this.categoryRepository.findOneById(id);
     }
+     public Category findById(Long id) {
+            return this.categoryRepository.findById(id).orElse(null);
+        }
 }
