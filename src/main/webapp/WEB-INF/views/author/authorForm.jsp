@@ -1,6 +1,5 @@
 <%@ taglib prefix="from" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -17,6 +16,7 @@
         <label>Surname: <form:input path="surname"/></label>
         <form:errors path="surname"/>
     </div>
+    <input type="submit" name="Save"/>
 </from:form>
 
 </body>
