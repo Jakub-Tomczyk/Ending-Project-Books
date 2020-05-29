@@ -4,6 +4,7 @@ import pl.jakubtomczyk.enums.Rating;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.util.Set;
 
 @Entity
@@ -18,7 +19,7 @@ public class Book {
     private Set<Publisher> publisher;
     @Column(length=1000)
     private String description;
-    @NotBlank(message = "Cannot be empty")
+    @NotNull(message = "Cannot be empty")
     private Rating rating;
     @ManyToMany
     private Set<Category> category;

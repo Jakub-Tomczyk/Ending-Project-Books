@@ -57,7 +57,7 @@ public class BookController {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return "redirect:/home";
+        return "redirect:/bookList";
     }
 
 
@@ -65,11 +65,6 @@ public class BookController {
     @ModelAttribute("ratings")
     public List<Rating> ratings() {return Arrays.asList(Rating.values());}
 
-    //możliwość wyświetlenia wszystkich Books
-    @ModelAttribute("books")
-    public List<Book> books() {
-        return bookService.readAll();
-    }
 
     // możliwość wyświetlenia wszystkich Kategorii w liście książek w pliku .jsp
     @ModelAttribute("categories")
@@ -82,6 +77,12 @@ public class BookController {
     //Możliwość wyświetlania wszystkich wydawców w liście ksiażek w pliku .jsp
     @ModelAttribute("publishers")
     public List<Publisher> publishers(){return publisherService.readAll();}
+
+    //możliwość wyświetlenia wszystkich Books
+    @ModelAttribute("books")
+    public List<Book> books() {
+        return bookService.readAll();
+    }
 
     // zwraca listę wszystkich książek. Najpierw przekieruje do pliku book  List.jsp a tam je poprzez pętle wyświetli
     @GetMapping("/bookList")
@@ -101,8 +102,18 @@ public class BookController {
     @GetMapping("/deleteBook/{id}")
     public String delete(@PathVariable long id) {
         bookService.deleteById(id);
-        return "redirect:/home";
+        return "redirect:/bookList";
     }
 
+    //możliwość wyświetlania ksiażek posortowanych po ratingu
+    @ModelAttribute("booksByRating")
+    public List<Book> booksByRating(){return bookService.listOfBooksByRating();}
+
+    //zwraca listę wszystkich ksiażęk posortowaną po ratingu.
+    @GetMapping("/bookListByRating")
+    public String getListByRating(Model model){
+        model.addAttribute("booksByRating", bookService.listOfBooksByRating());
+        return "book/bookListByRating";
+    }
 
 }

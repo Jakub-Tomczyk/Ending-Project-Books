@@ -39,7 +39,7 @@ public class PublisherController {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return "redirect:/home";
+        return "redirect:/publisherList";
     }
 
     //możliwość wyświetlania wszystkich wydawców w liście wydawców w pliku .jsp
@@ -66,6 +66,6 @@ public class PublisherController {
     @GetMapping("/deletePublisher/{id}")
     public String delete(@PathVariable long id){
         publisherService.deleteById(id);
-        return "redirect:/home";
+        return "redirect:/publisherList";
     }
 }

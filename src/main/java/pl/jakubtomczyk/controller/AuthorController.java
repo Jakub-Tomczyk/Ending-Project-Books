@@ -40,7 +40,7 @@ public class AuthorController {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return "redirect:/home";
+        return "redirect:/authorList";
     }
 
     //możliwość wyświetlania wszystkich autorów w liście ksiażęk w pliku .jsp
@@ -65,6 +65,6 @@ public class AuthorController {
     @GetMapping("/deleteAuthor/{id}")
     public String delete(@PathVariable long id){
         authorService.deleteById(id);
-        return "redirect:/home";
+        return "redirect:/authorList";
     }
 }

@@ -39,7 +39,7 @@ public class CategoryController {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return "redirect:/home";
+        return "redirect:/categoryList";
     }
 
     //możliwość wyświetlania wszystkich kategorii w liście kategorii w pliku .jsp
@@ -66,6 +66,6 @@ public class CategoryController {
     @GetMapping("/deleteCategory/{id}")
     public String delete(@PathVariable long id){
         categoryService.deleteById(id);
-        return "redirect:/home";
+        return "redirect:/categoryList";
     }
 }

@@ -60,6 +60,12 @@ What You would like to do?
     <a href="/categoryList"> category list </a>
 </div>
 
+<div>
+    <br>
+    Top for all Books
+    <a href="/bookListByRating"> top </a>
+</div>
+
 <!-- poniżej ma być to dla admina. A powyżej reszta odnośników -->
 
 <div>
