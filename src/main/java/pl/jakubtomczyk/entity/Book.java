@@ -3,7 +3,6 @@ package pl.jakubtomczyk.entity;
 import pl.jakubtomczyk.enums.Rating;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.util.Set;
 
