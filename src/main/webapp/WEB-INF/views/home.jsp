@@ -3,10 +3,11 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Testowanie</title>
+    <title>Home Page</title>
 </head>
 <body>
-Home Page :-)
+Welcome to Home Page :-) <br>
+What You would like to do?
 <br>
 <div>
     <br>
@@ -15,7 +16,7 @@ Home Page :-)
 </div>
 <div>
     <br>
-    List all Users-
+    List of all Users-
     <a href="/usersList"> users list </a>
 </div>
 <div>
@@ -25,7 +26,7 @@ Home Page :-)
 </div>
 <div>
     <br>
-    List all Books-
+    List of all Books-
     <a href="/bookList"> books list </a>
 </div>
 <div>
@@ -35,17 +36,41 @@ Home Page :-)
 </div>
 <div>
     <br>
-    List all Authors-
+    List of all Authors-
     <a href="/authorList"> authors list </a>
 </div>
-
+<div>
+    <br>
+    Add new Publisher -
+    <a href="/formPublisher"> add new Publisher </a>
+</div>
+<div>
+    <br>
+    List of all Publishers-
+    <a href="/publisherList"> publisher list </a>
+</div>
+<div>
+    <br>
+    Add new Category -
+    <a href="/formCategory"> add new Category </a>
+</div>
+<div>
+    <br>
+    List of all Category-
+    <a href="/categoryList"> category list </a>
+</div>
 
 <!-- poniżej ma być to dla admina. A powyżej reszta odnośników -->
 
 <div>
     <br>
-    Only for Admin -
-    <a href="/about">admin login</a>
+    Login
+    <a href="/about">login</a>
+</div>
+<div>
+    <br>
+    Admin
+    <a href="/admin" />admin</a>
 </div>
 <nav>
     <sec:authorize access="isAuthenticated()">

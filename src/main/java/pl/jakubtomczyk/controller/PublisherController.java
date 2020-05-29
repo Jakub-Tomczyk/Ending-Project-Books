@@ -62,7 +62,7 @@ public class PublisherController {
         return "publisher/publisherForm";
     }
 
-    //usuwanie autora
+    //usuwanie wydawcy
     @GetMapping("/deletePublisher/{id}")
     public String delete(@PathVariable long id){
         publisherService.deleteById(id);

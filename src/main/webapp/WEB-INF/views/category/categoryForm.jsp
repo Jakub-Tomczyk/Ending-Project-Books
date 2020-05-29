@@ -9,8 +9,8 @@
 <from:form method="post" modelAttribute="category" action="/formCategory">
     <form:hidden path="id"/>
     <div>
-        <label>Name: <form:input path="nameCategory"/></label>
-        <form:errors path="nameCategory"/>
+        <label>Name: <form:input path="categoryName"/></label>
+        <form:errors path="categoryName"/>
     </div>
     <input type="submit" name="Save"/>
 </from:form>

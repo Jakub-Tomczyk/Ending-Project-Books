@@ -8,7 +8,6 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-import pl.jakubtomczyk.entity.Book;
 import pl.jakubtomczyk.entity.User;
 import pl.jakubtomczyk.fixture.InitDataFixture;
 import pl.jakubtomczyk.service.UserService;

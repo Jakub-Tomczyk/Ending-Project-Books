@@ -26,10 +26,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
                 .antMatchers("/").permitAll()
                 .antMatchers("/about").authenticated()
-                .antMatchers("/admin").hasRole("ADMIN")
+                .antMatchers("/admin","/delete/**","/deleteAuthor/**","/deleteBook/**","/deleteCategory/**","/deletePublisher/**").hasRole("ADMIN")
                 .and().formLogin()
                 .loginPage("/login")
-                .and().logout().logoutSuccessUrl("/")
+                .and().logout().logoutSuccessUrl("/home")
                 .permitAll()
                 .and().exceptionHandling().accessDeniedPage("/403");
     }

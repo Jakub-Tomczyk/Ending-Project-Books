@@ -10,7 +10,7 @@ public class Category {
     private Long id;
     private String categoryName;
     @ManyToMany(mappedBy = "category")
-    private Set<Book> nameCategory;
+    private Set<Book> books;
 
     public String getCategoryName() {
         return categoryName;
@@ -28,11 +28,11 @@ public class Category {
         this.id = id;
     }
 
-    public Set<Book> getNameCategory() {
-        return nameCategory;
+    public Set<Book> getBooks() {
+        return books;
     }
 
-    public void setNameCategory(Set<Book> nameCategory) {
-        this.nameCategory = nameCategory;
+    public void setBooks(Set<Book> books) {
+        this.books = books;
     }
 }

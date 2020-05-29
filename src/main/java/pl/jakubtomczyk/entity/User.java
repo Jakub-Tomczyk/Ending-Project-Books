@@ -16,7 +16,7 @@ public class User {
     @Column(nullable = false, unique = true, length = 60)
     private String firstName;
     private String lastName;
-    @NotBlank
+    @NotBlank(message = "cannot be empty")
     private String password;
     private String city;
     @Column(length=500)

@@ -18,7 +18,7 @@
         <form:errors path="author"/>
     </div>
     <div>
-        <label>Publisher: <form:select path="publisher" items="${publishers}" itemLabel="publisher" itemValue="id" multiple="true" /></label>
+        <label>Publisher: <form:select path="publisher" items="${publishers}" itemLabel="publisherName" itemValue="id" multiple="true" /></label>
         <form:errors path="publisher"/>
     </div>
     <div>
@@ -30,7 +30,7 @@
         <form:errors path="rating"/>
     </div>
     <div>
-        <label>Category: <from:select path="category" items="${categories}" itemLabel="category" itemValue="id" multiple="true"/></label>
+        <label>Category: <from:select path="category" items="${categories}" itemLabel="categoryName" itemValue="id" multiple="true"/></label>
         <from:errors path="category"/>
     </div>
     <input type="submit" name="Save"/>

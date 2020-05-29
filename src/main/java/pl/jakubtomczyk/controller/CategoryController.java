@@ -55,14 +55,14 @@ public class CategoryController {
         return "category/categoryList";
     }
 
-    //edytowanie autora
+    //edytowanie kategorii
     @GetMapping("/formCategory/{id}")
     public String get(Model model, @PathVariable long id){
         model.addAttribute("category", categoryService.findById(id));
         return "category/categoryForm";
     }
 
-    //usuwanie autora
+    //usuwanie kategori
     @GetMapping("/deleteCategory/{id}")
     public String delete(@PathVariable long id){
         categoryService.deleteById(id);

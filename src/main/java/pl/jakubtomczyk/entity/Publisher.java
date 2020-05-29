@@ -10,7 +10,7 @@ public class Publisher {
     private Long id;
     private String publisherName;
     @ManyToMany(mappedBy = "publisher")
-    private Set<Book> name;
+    private Set<Book> books;
 
     public Long getId() {
         return id;
@@ -28,11 +28,12 @@ public class Publisher {
         this.publisherName = publisherName;
     }
 
-    public Set<Book> getName() {
-        return name;
+    public Set<Book> getBooks() {
+        return books;
     }
 
-    public void setName(Set<Book> name) {
-        this.name = name;
+    public void setBooks(Set<Book> books) {
+        this.books = books;
     }
 }
+

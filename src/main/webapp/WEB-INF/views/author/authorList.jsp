@@ -2,6 +2,15 @@
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
+<style type="text/css">
+    table * {
+        border: 1px solid black;
+        border-radius: 5px;
+        caption-side: bottom;
+        text-align: center;
+        background-color: lightblue;
+    }
+</style>
 <head>
     <title>Author List</title>
 </head>
@@ -10,6 +19,7 @@
     <tr>
         <th>Name</th>
         <th>Surname</th>
+        <th>Action</th>
     </tr>
     <c:forEach items="${authors}" var="author">
         <tr>
