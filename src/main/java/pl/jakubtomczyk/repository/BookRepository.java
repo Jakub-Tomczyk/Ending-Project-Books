@@ -18,9 +18,9 @@ public interface BookRepository extends JpaRepository<Book, Long> {
     @Query("SELECT b FROM Book b ORDER BY b.rating DESC")
     List<Book> findAllByRatingASC();
 
-    // Listę książek dla zadanego wydawcy.
-    @Query("SELECT b FROM Book b WHERE b.publisher = :publisher")
-    List<Book> findAllByPublisherUsingQuery(@Param("publisher") Publisher publisher);
+//    // Listę książek dla zadanego wydawcy.
+//    @Query("SELECT b FROM Book b WHERE b.publisher = :publisher")
+//    List<Book> findAllBookByPublisher(@Param("publisher") Publisher publisher);
 
 
 }

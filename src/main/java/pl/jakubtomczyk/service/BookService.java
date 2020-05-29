@@ -3,6 +3,7 @@ package pl.jakubtomczyk.service;
 
 import org.springframework.stereotype.Service;
 import pl.jakubtomczyk.entity.Book;
+import pl.jakubtomczyk.entity.Publisher;
 import pl.jakubtomczyk.repository.BookRepository;
 
 import java.util.List;
@@ -30,4 +31,6 @@ public class BookService {
     public void update(Book book, Long id){this.bookRepository.findOneById(id);}
 
     public List<Book> listOfBooksByRating() { return this.bookRepository.findAllByRatingASC();}
+
+//    public List<Book> listOfBooByPublisher(Publisher publisher) { return this.bookRepository.findAllBookByPublisher(publisher);}
 }

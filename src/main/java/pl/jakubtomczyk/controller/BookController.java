@@ -3,10 +3,7 @@ package pl.jakubtomczyk.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 import pl.jakubtomczyk.entity.Author;
 import pl.jakubtomczyk.entity.Book;
 import pl.jakubtomczyk.entity.Category;
@@ -105,7 +102,7 @@ public class BookController {
         return "redirect:/bookList";
     }
 
-    //możliwość wyświetlania ksiażek posortowanych po ratingu
+    //możliwość wyświetlania książek posortowanych po ratingu
     @ModelAttribute("booksByRating")
     public List<Book> booksByRating(){return bookService.listOfBooksByRating();}
 
@@ -115,5 +112,16 @@ public class BookController {
         model.addAttribute("booksByRating", bookService.listOfBooksByRating());
         return "book/bookListByRating";
     }
+
+//    //możliwość wyświetlenie książki po zadanym wydawcy -> nie działa
+//    @ModelAttribute("booksByPublisher")
+//    public List<Book> booksByPublisher(Publisher publisher){return bookService.listOfBooByPublisher(publisher);}
+//
+//    // zwraca listę wszystkich książęk po zadanym wydawcy -> nie działa.
+//    @GetMapping("/booksListByPublisher/{publisherName}")
+//    public String getBookByPublisher( Model model, @PathVariable Publisher publisher){
+//        model.addAttribute("booksByPublisher", bookService.listOfBooByPublisher(publisher));
+//        return "book/bookListByPublisher";
+//    }
 
 }

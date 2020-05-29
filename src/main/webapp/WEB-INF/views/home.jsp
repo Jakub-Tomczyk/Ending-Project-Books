@@ -5,7 +5,8 @@
 <head>
     <title>Home Page</title>
 </head>
-<body>
+<body style="background-color: lightgoldenrodyellow">
+
 Welcome to Home Page :-) <br>
 What You would like to do?
 <br>
